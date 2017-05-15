@@ -1,6 +1,8 @@
 import item.Apple;
 import item.Fruit;
+import item.Orange;
 import offer.Bogof;
+import offer.ThreeForTwo;
 
 import java.util.ArrayList;
 
@@ -31,11 +33,17 @@ public class Checkout {
             }
         }
 
-        return calculateTotalForBogof(numberOfApples);
+        return calculateTotalForBogof(numberOfApples) + calculateTotalForThreeForTwo(numberOfOranges);
     }
 
     private double calculateTotalForBogof(int numberOfApples) {
         Bogof bogof = new Bogof();
         return bogof.applyOffer(numberOfApples, new Apple().getPrice());
     }
+
+    private double calculateTotalForThreeForTwo(int numberOfOranges) {
+        ThreeForTwo bogof = new ThreeForTwo();
+        return bogof.applyOffer(numberOfOranges, new Orange().getPrice());
+    }
+
 }
