@@ -58,6 +58,6 @@ public class CheckoutTest extends TestCase {
         };
         listOfTestItems.addAll(Arrays.asList(testItems));
 
-        assertThat(sut.calculateTotalWithOffers(listOfTestItems), is(1.7));
+        assertThat(sut.calculateTotalWithOffers(listOfTestItems), is(1.70));
     }
 }

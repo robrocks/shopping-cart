@@ -5,7 +5,7 @@ package offer;
  */
 public class Bogof implements SpecialOffer {
 
-    public double applyOffer(int numberOfItems, double price) {
+    public double applyDiscount(int numberOfItems, double price) {
         if(numberOfItems > 0) {
             int rest = numberOfItems % 2;
             return ((numberOfItems - rest) / 2 + rest) * price;
