@@ -13,6 +13,7 @@ public class BogofTest {
     @Test
     public void testApplyOfferOnApples() {
         Bogof sut = new Bogof();
+        assertThat(sut.applyOffer(2,0.6), is(0.6));
         assertThat(sut.applyOffer(3,0.6), is(1.2));
     }
 }

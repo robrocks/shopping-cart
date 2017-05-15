@@ -42,8 +42,7 @@ public class Checkout {
     }
 
     private double calculateTotalForThreeForTwo(int numberOfOranges) {
-        ThreeForTwo bogof = new ThreeForTwo();
-        return bogof.applyOffer(numberOfOranges, new Orange().getPrice());
+        ThreeForTwo threeForTwo = new ThreeForTwo();
+        return threeForTwo.applyOffer(numberOfOranges, new Orange().getPrice());
     }
-
 }

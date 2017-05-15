@@ -14,5 +14,8 @@ public class ThreeForTwoTest {
     public void testApplyOfferOnOranges() {
         ThreeForTwo sut = new ThreeForTwo();
         assertThat(sut.applyOffer(3,0.25), is(0.5));
+        assertThat(sut.applyOffer(4,0.25), is(0.75));
+        assertThat(sut.applyOffer(5,0.25), is(1.0));
+        assertThat(sut.applyOffer(6,0.25), is(1.0));
     }
 }
