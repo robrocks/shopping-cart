@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -19,7 +20,7 @@ public class CheckoutTest extends TestCase {
 
     @Test
     public void testCalculateTotal() {
-        ArrayList<Fruit> listOfTestItems = new ArrayList<Fruit>();
+        List<Fruit> listOfTestItems = new ArrayList<Fruit>();
         Fruit[] testItems = new Fruit[] {
                 new Apple(),
                 new Apple(),
@@ -33,7 +34,7 @@ public class CheckoutTest extends TestCase {
 
     @Test
     public void testCalculateTotalWithOffers() {
-        ArrayList<Fruit> listOfTestItems = new ArrayList<Fruit>();
+        List<Fruit> listOfTestItems = new ArrayList<Fruit>();
         Fruit[] testItems = new Fruit[] {
                 new Apple(),
                 new Apple(),
@@ -47,7 +48,7 @@ public class CheckoutTest extends TestCase {
 
     @Test
     public void testCalculateTotalWithOffers_MoreOranges() {
-        ArrayList<Fruit> listOfTestItems = new ArrayList<Fruit>();
+        List<Fruit> listOfTestItems = new ArrayList<Fruit>();
         Fruit[] testItems = new Fruit[] {
                 new Apple(),
                 new Apple(),
