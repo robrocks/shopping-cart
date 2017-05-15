@@ -30,4 +30,18 @@ public class CheckoutTest extends TestCase {
 
         assertThat(sut.calculateTotal(listOfTestItems), is(2.05));
     }
+
+    @Test
+    public void testCalculateTotalForBogof() {
+        ArrayList<Fruit> listOfTestItems = new ArrayList<Fruit>();
+        Fruit[] testItems = new Fruit[] {
+                new Apple(),
+                new Apple(),
+                new Orange(),
+                new Apple(),
+        };
+        listOfTestItems.addAll(Arrays.asList(testItems));
+
+        assertThat(sut.calculateTotalWithOffers(listOfTestItems), is(1.2));
+    }
 }

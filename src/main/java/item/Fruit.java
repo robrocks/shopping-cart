@@ -6,5 +6,4 @@ package item;
 public interface Fruit {
 
     double getPrice();
-
 }
