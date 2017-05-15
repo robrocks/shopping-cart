@@ -34,8 +34,8 @@ public class Checkout {
             }
         }
 
-        Bogof bogof = new Bogof();
-        ThreeForTwo threeForTwo = new ThreeForTwo();
+        SpecialOffer bogof = new Bogof();
+        SpecialOffer threeForTwo = new ThreeForTwo();
 
         return calculateOffer(numberOfApples, new Apple().getPrice(), bogof)
                 + calculateOffer(numberOfOranges, new Orange().getPrice(), threeForTwo);
