@@ -20,44 +20,41 @@ public class CheckoutTest extends TestCase {
 
     @Test
     public void testCalculateTotal() {
-        List<Fruit> listOfTestItems = new ArrayList<Fruit>();
-        Fruit[] testItems = new Fruit[] {
-                new Apple(),
-                new Apple(),
-                new Orange(),
-                new Apple(),
-        };
-        listOfTestItems.addAll(Arrays.asList(testItems));
+        List<Fruit> listOfTestItems = new ArrayList<Fruit>(
+                Arrays.asList(
+                        new Apple(),
+                        new Apple(),
+                        new Orange(),
+                        new Apple()
+                ));
 
         assertThat(sut.calculateTotal(listOfTestItems), is(2.05));
     }
 
     @Test
     public void testCalculateTotalWithOffers() {
-        List<Fruit> listOfTestItems = new ArrayList<Fruit>();
-        Fruit[] testItems = new Fruit[] {
-                new Apple(),
-                new Apple(),
-                new Orange(),
-                new Apple(),
-        };
-        listOfTestItems.addAll(Arrays.asList(testItems));
+        List<Fruit> listOfTestItems = new ArrayList<Fruit>(
+                Arrays.asList(
+                        new Apple(),
+                        new Apple(),
+                        new Orange(),
+                        new Apple()
+                ));
 
         assertThat(sut.calculateTotalWithOffers(listOfTestItems), is(1.45));
     }
 
     @Test
     public void testCalculateTotalWithOffers_MoreOranges() {
-        List<Fruit> listOfTestItems = new ArrayList<Fruit>();
-        Fruit[] testItems = new Fruit[] {
-                new Apple(),
-                new Apple(),
-                new Orange(),
-                new Apple(),
-                new Orange(),
-                new Orange(),
-        };
-        listOfTestItems.addAll(Arrays.asList(testItems));
+        List<Fruit> listOfTestItems = new ArrayList<Fruit>(
+                Arrays.asList(
+                        new Apple(),
+                        new Apple(),
+                        new Orange(),
+                        new Apple(),
+                        new Orange(),
+                        new Orange()
+                ));
 
         assertThat(sut.calculateTotalWithOffers(listOfTestItems), is(1.70));
     }
