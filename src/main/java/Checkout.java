@@ -5,14 +5,14 @@ import offer.Bogof;
 import offer.SpecialOffer;
 import offer.ThreeForTwo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by rr.t3ch on 15/05/17.
  */
 public class Checkout {
 
-    public double calculateTotal(ArrayList<Fruit> listOfItemsScanned) {
+    public double calculateTotal(List<Fruit> listOfItemsScanned) {
         double totalPrice = 0;
 
         for (Fruit item: listOfItemsScanned) {
@@ -22,7 +22,7 @@ public class Checkout {
         return totalPrice;
     }
 
-    public double calculateTotalWithOffers(ArrayList<Fruit> listOfItemsScanned) {
+    public double calculateTotalWithOffers(List<Fruit> listOfItemsScanned) {
         int numberOfApples = 0;
         int numberOfOranges = 0;
 
