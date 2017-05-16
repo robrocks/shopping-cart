@@ -1,11 +1,10 @@
 import item.Apple;
 import item.Fruit;
 import item.Orange;
-import offer.Bogof;
 import offer.SpecialOffer;
-import offer.ThreeForTwo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by rr.t3ch on 15/05/17.
@@ -22,7 +21,7 @@ public class Checkout {
         return totalPrice;
     }
 
-    public double calculateTotalWithOffers(List<Fruit> listOfItemsScanned) {
+    public double calculateTotal(List<Fruit> listOfItemsScanned, Map<String, SpecialOffer> offers) {
         int numberOfApples = 0;
         int numberOfOranges = 0;
 
@@ -34,11 +33,8 @@ public class Checkout {
             }
         }
 
-        SpecialOffer bogof = new Bogof();
-        SpecialOffer threeForTwo = new ThreeForTwo();
-
-        return calculateOffer(numberOfApples, new Apple().getPrice(), bogof)
-                + calculateOffer(numberOfOranges, new Orange().getPrice(), threeForTwo);
+        return calculateOffer(numberOfApples, new Apple().getPrice(), offers.get("Apple"))
+                + calculateOffer(numberOfOranges, new Orange().getPrice(), offers.get("Orange"));
     }
 
     private double calculateOffer(int numberOfFruits, double price, SpecialOffer offer) {

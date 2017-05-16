@@ -2,11 +2,12 @@ import item.Apple;
 import item.Fruit;
 import item.Orange;
 import junit.framework.TestCase;
+import offer.Bogof;
+import offer.SpecialOffer;
+import offer.ThreeForTwo;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -17,6 +18,11 @@ import static org.hamcrest.core.Is.is;
 public class CheckoutTest extends TestCase {
 
     Checkout sut = new Checkout();
+
+    Map<String, SpecialOffer> testOffers = new HashMap<String, SpecialOffer>() {{
+        put("Apple", new Bogof());
+        put("Orange", new ThreeForTwo());
+    }};
 
     @Test
     public void testCalculateTotal() {
@@ -41,7 +47,7 @@ public class CheckoutTest extends TestCase {
                         new Apple()
                 ));
 
-        assertThat(sut.calculateTotalWithOffers(listOfTestItems), is(1.45));
+        assertThat(sut.calculateTotal(listOfTestItems, testOffers), is(1.45));
     }
 
     @Test
@@ -56,6 +62,6 @@ public class CheckoutTest extends TestCase {
                         new Orange()
                 ));
 
-        assertThat(sut.calculateTotalWithOffers(listOfTestItems), is(1.70));
+        assertThat(sut.calculateTotal(listOfTestItems, testOffers), is(1.70));
     }
 }
