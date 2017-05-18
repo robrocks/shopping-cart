@@ -12,32 +12,25 @@ import java.util.Map;
 public class Checkout {
 
     public double calculateTotal(List<Fruit> listOfItemsScanned) {
-        double totalPrice = 0;
 
-        for (Fruit item: listOfItemsScanned) {
-            totalPrice += item.getPrice();
-        }
-
-        return totalPrice;
+        return listOfItemsScanned.stream()
+                .mapToDouble(item -> item.getPrice())
+                .sum();
     }
 
     public double calculateTotal(List<Fruit> listOfItemsScanned, Map<String, SpecialOffer> offers) {
-        int numberOfApples = 0;
-        int numberOfOranges = 0;
-
-        for (Fruit item: listOfItemsScanned) {
-            if (item instanceof Apple) {
-                numberOfApples++;
-            } else {
-                numberOfOranges++;
-            }
-        }
+        long numberOfApples = listOfItemsScanned.stream()
+                .filter(item -> item instanceof Apple)
+                .count();
 
         return calculateOffer(numberOfApples, new Apple().getPrice(), offers.get("Apple"))
-                + calculateOffer(numberOfOranges, new Orange().getPrice(), offers.get("Orange"));
+                + calculateOffer(listOfItemsScanned.size() - numberOfApples,
+                                    new Orange().getPrice(),
+                                    offers.get("Orange")
+                );
     }
 
-    private double calculateOffer(int numberOfFruits, double price, SpecialOffer offer) {
+    private double calculateOffer(long numberOfFruits, double price, SpecialOffer offer) {
         return offer.applyDiscount(numberOfFruits, price);
     }
 }

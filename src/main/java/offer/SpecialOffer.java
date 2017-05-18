@@ -5,5 +5,5 @@ package offer;
  */
 public interface SpecialOffer {
 
-    double applyDiscount(int numberOfItems, double price);
+    double applyDiscount(long numberOfItems, double price);
 }
